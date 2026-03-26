@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impostor Word Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Impostor Word Game</h1>
+    <p class="subtitle">2–10 players · 5-minute round · One impostor has no secret word.</p>
+
+    <section class="card" id="setupCard">
+      <h2>Setup Players</h2>
+      <form id="playerForm">
+        <label for="playerName">Player name</label>
+        <div class="row">
+          <input id="playerName" maxlength="24" placeholder="Enter player name" autocomplete="off" />
+          <button type="submit">Add</button>
+        </div>
+      </form>
+
+      <ul id="playerList" class="player-list"></ul>
+
+      <div class="row controls">
+        <button id="startGame" disabled>Start Game</button>
+        <button id="resetSetup" class="secondary">Reset</button>
+      </div>
+      <p class="hint">You need at least 3 players. Max: 10.</p>
+    </section>
+
+    <section class="card hidden" id="revealCard">
+      <h2>Role Reveal</h2>
+      <p id="revealInstruction"></p>
+      <button id="showRole">Show Role</button>
+      <div id="roleDisplay" class="role-display hidden"></div>
+      <button id="nextReveal" class="hidden">Pass to Next Player</button>
+    </section>
+
+    <section class="card hidden" id="roundCard">
+      <h2>Round Live</h2>
+      <p><strong>Speaking order:</strong> <span id="speakingOrder"></span></p>
+      <p id="starterNotice" class="hint"></p>
+      <div class="timer" id="timer">05:00</div>
+      <div class="row controls">
+        <button id="pauseTimer" class="secondary">Pause</button>
+        <button id="endRound">End Round</button>
+      </div>
+      <p class="hint">Discuss and vote who the impostor is before the timer ends.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
